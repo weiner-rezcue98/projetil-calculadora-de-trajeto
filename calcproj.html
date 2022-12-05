@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- Mirrored from www.ficoumaisfacil.com.br/lazer/arquivos/projcalc/calcproj.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 Dec 2022 22:50:57 GMT -->
+<head><title>Projétil: Calculadora de Trajetória</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="icon" type="image/png" href="https://www.ficoumaisfacil.com.br/imagens/favicon.ico">
+<meta name="description" content="O portal Ficou Mais Fácil foi eleborado baseado em um moderno conceito de educação que permite a continuidade do aprendizado em casa, através de atividades, vídeos, textos, dicas e muito mais. Com linguagem direta e descomplicada, o estudante terá sempre acesso a um espaço interativo e dinâmico onde poderá aprofundar seus conhecimentos de forma rápida e eficiente.">
+<meta name="copyright" content="Ficou Mais Fácil">
+<script language="JavaScript">
+function calculate()
+{
+document.calc.range.value = "não pode resolver";
+document.calc.height.value = "";
+document.calc.time.value = "";
+document.calc.speed.value = "";
+var Vo = parseFloat(document.calc.Vel_o.value);
+var th = parseFloat(document.calc.Theta.value); var Yo = parseFloat(document.calc.Hgt_o.value);
+if ((th > 90.0)||(th < 0.0)||(Vo < 0.0)) return;
+th = (Math.PI/180.0)*th;
+var Ge = parseFloat(9.81);
+var Vx = Vo*Math.cos(th); var Vy = Vo*Math.sin(th); var hgt = Yo + Vy*Vy/(2*Ge); if (hgt < 0.0) return;
+var upt = Vy/Ge; var dnt = Math.sqrt(2*hgt/Ge); var rng = Vx*(upt + dnt); var imp = upt + dnt;
+var spd = Math.sqrt((Ge*dnt)*(Ge*dnt) + Vx*Vx);
+if(document.calc.group1[0].checked) {
+document.calc.range.value = Math.round(100000.0*rng)/100000.0;
+document.calc.height.value = Math.round(100000.0*hgt)/100000.0;
+document.calc.time.value = Math.round(100000.0*imp)/100000.0;
+document.calc.speed.value = Math.round(100000.0*spd)/100000.0;
+}
+else
+{
+document.calc.range.value = rng;
+document.calc.height.value = hgt;
+document.calc.time.value = imp;
+document.calc.speed.value = spd;
+}
+}
+function allclear()
+{
+document.calc.range.value = '0';
+document.calc.height.value = '0';
+document.calc.time.value = '0';
+document.calc.speed.value = '0';
+}
+</script>
+</head>
+<body style="color: black; background-color: white;">
+<div style="text-align: center;"><a href="https://www.ficoumaisfacil.com.br/apoio.php"><img title="Material de Apoio" alt="Material de Apoio" src="../../../imagens/headinglivros.jpg"></a></div>
+<script async="" src="../../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-5900989438283878",
+enable_page_level_ads: true
+});
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68422435-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async="" src="../../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script><!-- DoSiteFMF --><ins class="adsbygoogle" style="display: block;" data-ad-client="ca-pub-5900989438283878" data-ad-slot="7276821741" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<center>
+<h1><font color="green"><b>Projétil:
+Calculadora de Trajetória</b></font></h1>
+</center>
+<center><img src="traj.gif">
+<form name="calc"><br>
+<table>
+<tbody>
+<tr>
+<td></td>
+<td><b>Entre com os valores:</b></td>
+<td></td>
+</tr>
+<tr>
+<td><tt>V<sub>o</sub></tt> </td>
+<td>= <input maxlength="30" value="0" name="Vel_o"> </td>
+<td>metros/segundos
+</td>
+</tr>
+<tr>
+<td><tt>θº</tt> </td>
+<td>= <input maxlength="30" value="0" name="Theta"> </td>
+<td>graus
+</td>
+</tr>
+<tr>
+<td><tt>Y<sub>o</sub></tt> </td>
+<td>= <input maxlength="30" value="0" name="Hgt_o"> </td>
+<td>metros
+</td>
+</tr>
+<tr>
+<td></td>
+<td><b>Resultados:</b></td>
+<td></td>
+</tr>
+<tr>
+<td><tt>R</tt> </td>
+<td>= <input maxlength="30" value="0" name="range" readonly="readonly"> </td>
+<td>metros
+</td>
+</tr>
+<tr>
+<td><tt>H</tt> </td>
+<td>= <input maxlength="30" value="0" name="height" readonly="readonly"> </td>
+<td>metros
+</td>
+</tr>
+<tr>
+<td><tt>T</tt> </td>
+<td>= <input maxlength="30" value="0" name="time" readonly="readonly"> </td>
+<td>segundos
+</td>
+</tr>
+<tr>
+<td><tt>V<sub>f</sub></tt> </td>
+<td>= <input maxlength="30" value="0" name="speed" readonly="readonly"> </td>
+<td>metros/segundos
+</td>
+</tr>
+</tbody>
+</table>
+<p><input checked="checked" value="rnd" name="group1" type="radio">
+Arredondar&nbsp;&nbsp; <input value="nor" name="group1" type="radio"> Sem arredondar </p>
+<p><input onclick="calculate()" value="Calcular" type="button"> <input onclick="allclear()" value="Limpar" type="button"> </p>
+</form>
+</center>
+<p align="justify">Calcule a altura máxima, intervalo,
+tempo no ar e velocidade de impacto de um projétil balístico . Os
+cálculos usam a aceleração aproximada da gravidade sobre a superfície
+da terra (9,81 m/s<sup>2</sup>) sem considerar a
+resistência do ar. Insira a velocidade inicial, o ângulo inicial e a
+altura em relação à superfície do projétil; selecionando a opção de
+arredondamento desejado e em seguida, pressione o botão <b>Calcular</b>.
+Todas as entradas são zeradas pressionando o botão <b>Limpar</b>.
+Se o programa retornar a mensagem de erro: <b>não pode resolver</b>,
+então: o ângulo inicial estáora do intervalo 0 . . . 90º, ou a
+velocidade é negativa, ou há um valor negativo para a <tt>y<sub>o</sub></tt>
+(<i>altura inicial</i>) resulta em um valor negativo de H (<i>altura
+máxima</i>).
+</p>
+<br>
+<h3>
+<p align="justify">Este portal está em constante
+atualização, portanto, siga-nos
+no <a href="http://www.facebook.com/ficoumaisfacil">Facebook</a>
+e inscreva-se no nosso canal no <a href="https://www.youtube.com/channel/UCJ7IWmUQ5VgqPhS6K9lnvWw">Youtube</a>
+(links abaixo),
+para ser notificado sempre que fizermos novas postagens. Fique em dia
+com os novos vídeos e conteúdos.</p>
+</h3>
+<hr>
+<script>
+window.fbAsyncInit = function() {
+FB.init({
+appId : '419052808285249',
+xfbml : true,
+version : 'v2.5'
+});
+};
+(function(d, s, id){
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) {return;}
+js = d.createElement(s); js.id = id;
+js.src = "../../../../connect.facebook.net/pt_BR/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<center>
+<script src="../../../../apis.google.com/js/platform.js"></script>
+<script>
+function onYtEvent(payload) {
+if (payload.eventType == 'subscribe') {
+// Add code to handle subscribe event.
+} else if (payload.eventType == 'unsubscribe') {
+// Add code to handle unsubscribe event.
+}
+if (window.console) { // for debugging only
+window.console.log('YT event: ', payload);
+}
+}
+</script>&nbsp;&nbsp;
+<div class="g-ytsubscribe" data-channelid="UCJ7IWmUQ5VgqPhS6K9lnvWw" data-layout="default" data-count="default" data-onytevent="onYtEvent"></div>
+&nbsp;
+<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+<div class="fb-follow" data-href="http://www.facebook.com/ficoumaisfacil"></div>
+<hr>
+<div><a href="#" onclick="history.back()"><img src="../../../imagens/backbutton.gif"></a>&nbsp;
+&nbsp;
+<a href="https://www.ficoumaisfacil.com.br/index.php"><img title="Portal Ficou Mais Fácil" alt="Portal Ficou Mais Fácil" src="../../../imagens/homebutton.gif"></a>&nbsp;
+&nbsp;
+<a href="mailto:faleconosco@ficoumaisfacil.com.br"><img alt="Fale conosco" title="Fale conosco" src="../../../imagens/mailbutton.gif"></a></div>
+</center>
+</body>
+<!-- Mirrored from www.ficoumaisfacil.com.br/lazer/arquivos/projcalc/calcproj.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 Dec 2022 22:51:11 GMT -->
+</html>
